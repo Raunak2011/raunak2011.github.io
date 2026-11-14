@@ -1182,3 +1182,9 @@ html, body {
   overflow-x: hidden;
   overflow-x: clip;
 }
+
+/* The About section is already viewport-wide; negative margins caused overflow. */
+.about {
+  margin-inline: 0 !important;
+  width: 100%;
+}
