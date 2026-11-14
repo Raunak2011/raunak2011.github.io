@@ -1188,3 +1188,31 @@ html, body {
   margin-inline: 0 !important;
   width: 100%;
 }
+
+/* Keep the hero copy and artwork inside consistent viewport gutters */
+.hero {
+  padding-left: 6.1vw;
+  padding-right: 6.1vw;
+}
+.hero-index {
+  left: 6.1vw;
+  right: 6.1vw;
+}
+.art-label {
+  right: 0;
+  max-width: 48%;
+  text-align: right;
+}
+@media (max-width: 620px) {
+  .hero {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .hero-art {
+    right: 22px;
+  }
+  .hero-index {
+    left: 22px;
+    right: 22px;
+  }
+}
