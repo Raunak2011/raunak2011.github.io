@@ -1175,3 +1175,10 @@ body { letter-spacing: .015em; }
   .hero h1 { letter-spacing: -.055em; }
   .about h2, .contact h2, .section h2 { letter-spacing: -.065em; }
 }
+
+/* Prevent decorative elements and long headings from widening the page */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
