@@ -56,7 +56,7 @@ button {
 .brand {
   font-size: 18px;
   font-weight: 800;
-  letter-spacing: -.08em
+  letter-spacing: -.065em
 }
 
 .brand span {
@@ -118,7 +118,7 @@ button {
 .hero h1 {
   font-size: clamp(70px, 10.6vw, 154px);
   line-height: .83;
-  letter-spacing: -.105em;
+  letter-spacing: -.09em;
   margin: 0 0 35px;
   font-weight: 600
 }
@@ -285,7 +285,7 @@ button {
 
 h2 {
   font-size: clamp(44px, 6.4vw, 82px);
-  letter-spacing: -.085em;
+  letter-spacing: -.055em;
   line-height: .98;
   font-weight: 600;
   margin: 17px 0 0
@@ -364,7 +364,7 @@ h2 {
   font-size: 29px;
   line-height: .95;
   font-weight: 700;
-  letter-spacing: -.08em;
+  letter-spacing: -.065em;
   margin-top: 22px
 }
 
@@ -406,7 +406,7 @@ h2 {
 .phone-title {
   font-size: 25px;
   line-height: .94;
-  letter-spacing: -.08em;
+  letter-spacing: -.065em;
   margin-top: 35px;
   font-weight: 700
 }
@@ -445,7 +445,7 @@ h2 {
   font-size: 49px;
   font-weight: 800;
   line-height: .76;
-  letter-spacing: -.1em
+  letter-spacing: -.085em
 }
 
 .poster-disc {
@@ -465,7 +465,7 @@ h2 {
 
 .project-title {
   font-size: 20px;
-  letter-spacing: -.05em;
+  letter-spacing: -.035em;
   font-weight: 600
 }
 
@@ -529,7 +529,7 @@ h2 {
 
 .stat strong {
   font-size: 30px;
-  letter-spacing: -.07em;
+  letter-spacing: -.055em;
   display: block
 }
 
@@ -1168,3 +1168,10 @@ html, body { background-color: #111513; color-scheme: dark; }
 body, .about, .contact { background-color: #111513; }
 
 :root { color-scheme: dark; }
+
+/* Slightly roomier typography across the page */
+body { letter-spacing: .015em; }
+@media (max-width: 620px) {
+  .hero h1 { letter-spacing: -.055em; }
+  .about h2, .contact h2, .section h2 { letter-spacing: -.065em; }
+}
