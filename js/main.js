@@ -95,29 +95,18 @@ if ('IntersectionObserver' in window && linkedSections.length) {
 const themeToggle = document.querySelector('.theme-toggle');
 const themeLabel = document.querySelector('.theme-label');
 const themeMeta = document.querySelector('meta[name="theme-color"]');
-let savedTheme = null;
-try {
-  savedTheme = localStorage.getItem('portfolio-theme');
-} catch {
-  // Theme still works for this page view when browser storage is unavailable.
-}
-if (savedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
 
-const syncThemeControl = () => {
-  const isDark = document.documentElement.dataset.theme === 'dark';
-  themeToggle?.setAttribute('aria-pressed', String(isDark));
-  themeToggle?.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} theme`);
-  if (themeLabel) themeLabel.textContent = isDark ? 'Light theme' : 'Dark theme';
-  themeMeta?.setAttribute('content', isDark ? '#171d19' : '#f4f2ec');
-};
-syncThemeControl();
+// This site uses dark theme only.
+document.documentElement.dataset.theme = 'dark';
+themeToggle?.setAttribute('aria-pressed', 'true');
+themeToggle?.setAttribute('aria-label', 'Dark theme is active');
+if (themeLabel) themeLabel.textContent = 'Dark theme';
+themeMeta?.setAttribute('content', '#111513');
+
 themeToggle?.addEventListener('click', () => {
-  const isDark = document.documentElement.dataset.theme !== 'dark';
-  document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
-  try {
-    localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
-  } catch {
-    // The theme remains switched for this page view.
-  }
-  syncThemeControl();
+  document.documentElement.dataset.theme = 'dark';
+  themeToggle.setAttribute('aria-pressed', 'true');
+  themeToggle.setAttribute('aria-label', 'Dark theme is active');
+  if (themeLabel) themeLabel.textContent = 'Dark theme';
+  themeMeta?.setAttribute('content', '#111513');
 });
