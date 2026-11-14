@@ -1145,3 +1145,26 @@ body > header.shell .nav {
 .about-grid h2 {
   margin-left: 40px;
 }
+
+/* Static presentation: disable motion effects and animated scrolling */
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+.project-card:hover .mock,
+.project-card:hover .project-visual,
+.button:hover,
+.button:active,
+.nav-cta:active,
+.theme-toggle:active,
+.timeline-item:hover {
+  transform: none !important;
+}
+
+
+/* Keep every page region on the dark palette */
+html, body { background-color: #111513; color-scheme: dark; }
+body, .about, .contact { background-color: #111513; }
+
+:root { color-scheme: dark; }

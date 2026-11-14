@@ -24,48 +24,6 @@ if (menuToggle && primaryLinks) {
   });
 }
 
-const progressBar = document.querySelector('.scroll-progress');
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-if (progressBar) {
-  let progressFrame = 0;
-  const updateScrollProgress = () => {
-    if (progressFrame) return;
-    progressFrame = window.requestAnimationFrame(() => {
-      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
-      progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
-      progressFrame = 0;
-    });
-  };
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
-  window.addEventListener('resize', updateScrollProgress);
-  updateScrollProgress();
-}
-
-if (!reducedMotion && 'IntersectionObserver' in window) {
-  const revealItems = document.querySelectorAll(
-    '.section-head, .project-card, .about-grid > *, .skills-row > *, .experience > *, .timeline-item, .contact > .shell > *'
-  );
-  revealItems.forEach((item, index) => {
-    item.classList.add('scroll-reveal');
-    item.style.setProperty('--reveal-delay', `${(index % 3) * 90}ms`);
-  });
-
-  if (revealItems.length) {
-    document.documentElement.classList.add('reveal-ready');
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
-    revealItems.forEach((item) => revealObserver.observe(item));
-  }
-}
-
 const siteHeader = document.querySelector('body > header.shell');
 const updateHeaderState = () => {
   siteHeader?.classList.toggle('is-scrolled', window.scrollY > 12);
